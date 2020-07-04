@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Migrations\20200703222801_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200703222801_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200703232636_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200703232636_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200703233619_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200703233619_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200703234421_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200703234421_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200703234854_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200703234854_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200703235122_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200703235122_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200703235802_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200703235802_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200704000114_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200704000114_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200704000431_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200704000431_InitialMigration.Designer.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="5.2.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.1" />
+  </ItemGroup>
+</Project>
