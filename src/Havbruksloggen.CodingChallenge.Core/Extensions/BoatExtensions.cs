@@ -1,3 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Havbruksloggen.CodingChallenge.Core.Dtos;
 using Havbruksloggen.CodingChallenge.Core.Models;
 
@@ -27,8 +30,34 @@ namespace Havbruksloggen.CodingChallenge.Core.Extensions
                 BuildNumber = source.BuildNumber,
                 LoA = source.LoA,
                 B = source.B,
-                UserId =  source.UserId
+                UserId =  source.UserId,
+                CrewMembers = source.CrewMembers.ToEntities()
             };
         }
+
+        public static ICollection<CrewMember> ToEntities(this ICollection<CreateCrewMemberDto> source)
+        {
+            return source.Select(x => new CrewMember
+            {
+                Name = x.Name,
+                Age = x.Age,
+                CertifiedUntil = x.CertifiedUntil,
+                CrewRole = x.CrewRole,
+                Email = x.Email
+            }).ToList();
+        }
+
+        public static ICollection<CreateCrewMemberDto> ToDto(this ICollection<CrewMember> source)
+        {
+            return source.Select(x => new CreateCrewMemberDto
+            {
+                Name = x.Name,
+                Age = x.Age,
+                CertifiedUntil = x.CertifiedUntil,
+                CrewRole = x.CrewRole,
+                Email = x.Email
+            }).ToList();
+        }
+
     }
 }

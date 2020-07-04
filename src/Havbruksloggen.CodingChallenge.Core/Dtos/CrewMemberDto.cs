@@ -1,9 +1,10 @@
+using System;
 using System.Collections.Generic;
-using Havbruksloggen.CodingChallenge.Core.Models;
+using System.Text;
 
 namespace Havbruksloggen.CodingChallenge.Core.Dtos
 {
-    public class BoatDto : CreateBoatDto
+    class CrewMemberDto : CreateCrewMemberDto
     {
         public int Id { get; set; }
     }

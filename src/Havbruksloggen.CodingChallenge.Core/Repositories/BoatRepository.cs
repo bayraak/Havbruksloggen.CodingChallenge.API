@@ -31,6 +31,7 @@ namespace Havbruksloggen.CodingChallenge.Core.Repositories
         {
             return await DbContext.Boats
                 .AsNoTracking()
+                .Include(s => s.CrewMembers)
                 .Include(p => p.User)
                 .Where(q => q.UserId == userId)
                 .ToListAsync(cancellationToken);

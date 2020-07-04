@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Havbruksloggen.CodingChallenge.Core.Dtos;
 using Havbruksloggen.CodingChallenge.Core.Extensions;
 using Havbruksloggen.CodingChallenge.Core.Repositories;
-using Microsoft.EntityFrameworkCore;
 
 namespace Havbruksloggen.CodingChallenge.Core.Services
 {
@@ -41,7 +40,8 @@ namespace Havbruksloggen.CodingChallenge.Core.Services
                 Name = x.Name,
                 Producer = x.Producer,
                 LoA = x.LoA,
-                B = x.B
+                B = x.B,
+                CrewMembers = x.CrewMembers.ToDto()
             });
         }
     }
