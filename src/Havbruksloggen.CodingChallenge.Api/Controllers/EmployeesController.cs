@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Havbruksloggen.CodingChallenge.Api.Controllers
 {
-    [Route("api/employees")]
+    [Route("api/[controller]")]
     public class EmployeesController : ApiControllerBase
     {
         private readonly IEmployeeRepository _employeeRepository;

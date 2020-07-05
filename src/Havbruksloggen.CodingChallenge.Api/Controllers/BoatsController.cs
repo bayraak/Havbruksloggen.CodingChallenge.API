@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Havbruksloggen.CodingChallenge.Api.Controllers
 {
-    [Route("api/boats")]
+    [Route("api/[controller]")]
     [Authorize]
     public class BoatsController : ApiControllerBase
     {
@@ -36,7 +36,7 @@ namespace Havbruksloggen.CodingChallenge.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateBoatDto createBoatDto, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Create([FromBody] CreateBoatDto createBoatDto)
         {
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Name).Value;
             createBoatDto.UserId = int.Parse(userId);

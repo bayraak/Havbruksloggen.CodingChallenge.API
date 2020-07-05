@@ -6,6 +6,7 @@ using AutoFixture.Xunit2;
 using FluentAssertions;
 using Havbruksloggen.CodingChallenge.Core;
 using Havbruksloggen.CodingChallenge.Core.Models;
+using Havbruksloggen.CodingChallenge.Core.Repositories;
 using Havbruksloggen.CodingChallenge.Core.Services;
 using Havbruksloggen.CodingChallenge.Core.UnitTests.Infrastructure;
 using Microsoft.EntityFrameworkCore;
@@ -19,13 +20,11 @@ namespace Havbruksloggen.CodingChallengeH.Core.UnitTests.Services
         private static readonly Fixture _fixture = new Fixture();
 
         private readonly BoatService _service;
-        private readonly Mock<ApplicationDbContext> _dbContextMock;
+        private readonly BoatRepository _mockRepo;
 
         public BoatServiceTests()
         {
-            _dbContextMock = new Mock<ApplicationDbContext>(new DbContextOptionsBuilder<ApplicationDbContext>().Options);
-
-            _service = new BoatService(_dbContextMock.Object);
+            _service = new BoatService(_mockRepo);
         }
 
         [Theory, AutoData]
@@ -37,10 +36,8 @@ namespace Havbruksloggen.CodingChallengeH.Core.UnitTests.Services
             Boats.Add(new Boat { Id = expectedId, Name = "SMTH" });
             _fixture.AddManyTo(Boats, rand2);
 
-            _dbContextMock.Setup(x => x.Boats).Returns(Boats.GetMockDbSetObject());
-
             //when
-            var result = await _service.GetAll(default);
+            var result = await _service.GetAllAsync(default, 1);
 
             //then
             result.First().Id.Should().Be(expectedId);

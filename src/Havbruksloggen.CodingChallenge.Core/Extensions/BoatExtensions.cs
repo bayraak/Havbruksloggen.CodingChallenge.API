@@ -17,7 +17,8 @@ namespace Havbruksloggen.CodingChallenge.Core.Extensions
                 Producer = source.Producer,
                 BuildNumber = source.BuildNumber,
                 LoA = source.LoA,
-                B = source.B
+                B = source.B,
+                ImageUrl = source.ImageUrl
             };
         }
 
@@ -31,7 +32,8 @@ namespace Havbruksloggen.CodingChallenge.Core.Extensions
                 LoA = source.LoA,
                 B = source.B,
                 UserId =  source.UserId,
-                CrewMembers = source.CrewMembers.ToEntities()
+                CrewMembers = source.CrewMembers.ToEntities(),
+                ImageUrl = source.ImageUrl
             };
         }
 

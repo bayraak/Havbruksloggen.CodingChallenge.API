@@ -31,5 +31,7 @@ namespace Havbruksloggen.CodingChallenge.Core.Models
 
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
+
+        public string ImageUrl { get; set; }
     }
 }

@@ -9,13 +9,13 @@ namespace Havbruksloggen.CodingChallenge.Api.Converters
 {
     public static class ModelConverters
     {
-        public static User ToUser(this UserDto userDto)
+        public static User ToUser(this UserDto source)
         {
             return new User
             {
-                FirstName = userDto.FirstName,
-                LastName = userDto.LastName,
-                Username = userDto.Username
+                FirstName = source.FirstName,
+                LastName = source.LastName,
+                Username = source.Username
             };
         }
     }

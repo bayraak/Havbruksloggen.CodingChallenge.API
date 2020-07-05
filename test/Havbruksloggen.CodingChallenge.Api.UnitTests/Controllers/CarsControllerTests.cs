@@ -31,14 +31,14 @@ namespace Havbruksloggen.CodingChallenge.UnitTests.Controllers
             await Controller.GetAll(default);
 
             //then
-            _boatServiceMock.Verify(x => x.GetAllAsync(It.IsAny<CancellationToken>()), Times.Once);
+            _boatServiceMock.Verify(x => x.GetAllAsync(It.IsAny<CancellationToken>(), 1), Times.Once);
         }
 
         [Theory, AutoData]
         public async Task GetAll_should_return_Ok_with_expected_result(IEnumerable<BoatDto> boats)
         {
             //given
-            _boatServiceMock.Setup(x => x.GetAllAsync(It.IsAny<CancellationToken>()))
+            _boatServiceMock.Setup(x => x.GetAllAsync(It.IsAny<CancellationToken>(), 1))
                 .ReturnsAsync(boats);
 
             //when
