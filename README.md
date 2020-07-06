@@ -5,13 +5,13 @@ Havbruksloggen.CodingChallenge.API
 
 ## Source code contains
 
-1. [Autofac](https://autofac.org/)
-1. [Swagger](https://swagger.io/) + [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle)
-1. [HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks)
-1. [EF Core](https://docs.microsoft.com/ef/)
+* [Autofac](https://autofac.org/)
+* [Swagger](https://swagger.io/) + [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle)
+* [HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks)
+* [EF Core](https://docs.microsoft.com/ef/)
     * [MySQL provider from Pomelo Foundation](https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql)
     * [MsSQL from Microsoft](https://github.com/aspnet/EntityFrameworkCore/)
-1. Tests
+* Tests
     * Integration tests with InMemory database
         * [FluentAssertions]
         * [xUnit]
@@ -71,3 +71,12 @@ Havbruksloggen.CodingChallenge.API
 
 Execute `dotnet build` in the root directory, it takes `Havbruksloggen.CodingChallenge.sln` and build everything.
 Or pick Havbruksloggen.CodingChallenge.Api as startup project and run the console application
+
+## Deployed on Azure
+
+https://havbruksloggencodingchallengeapi20200705154032.azurewebsites.net/swagger
+
+## Azure blob container integration
+
+For Image upload feature craeted azure blob container
+
