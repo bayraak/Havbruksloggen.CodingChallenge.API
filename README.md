@@ -1,5 +1,7 @@
 # Havbruksloggen.CodingChallenge
 
+https://havbruksloggencodingchallengeapi20200705154032.azurewebsites.net/swagger
+
 
 Havbruksloggen.CodingChallenge.API
 
