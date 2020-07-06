@@ -34,8 +34,6 @@ Havbruksloggen.CodingChallenge.API
 
 ### Api
 
-[HappyCode.NetCoreBoilerplate.Api](src/HappyCode.NetCoreBoilerplate.Api)
-
 * Simple Startup class - [Startup.cs](src/HappyCode.NetCoreBoilerplate.Api/Startup.cs)
   * MvcCore
   * DbContext (with MsSQL)
