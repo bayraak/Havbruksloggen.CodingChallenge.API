@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
@@ -5,18 +7,17 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Havbruksloggen.CodingChallenge.Api.Infrastructure.Configurations;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using Havbruksloggen.CodingChallenge.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
-using Havbruksloggen.CodingChallenge.Api.BackgroundServices;
 using Microsoft.Extensions.Hosting;
 using Havbruksloggen.CodingChallenge.Core.Services;
 using Havbruksloggen.CodingChallenge.Core.Settings;
 using Havbruksloggen.CodingChallenge.Api.Helpers;
 using Havbruksloggen.CodingChallenge.Api.Infrastructure.Filters;
 using Havbruksloggen.CodingChallenge.Api.Infrastructure.Registrations;
+using Havbruksloggen.CodingChallenge.Api.Utils;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 
@@ -25,6 +26,7 @@ namespace Havbruksloggen.CodingChallenge.Api
     public class Startup
     {
         private readonly IConfiguration _configuration;
+        private const string DefaultCorsPolicyName = "localhost";
 
         public Startup(IConfiguration configuration)
         {
@@ -37,6 +39,7 @@ namespace Havbruksloggen.CodingChallenge.Api
 
             services.AddHttpContextAccessor();
 
+            services.AddCors();
 
             var appSettingsSection = _configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
@@ -77,7 +80,6 @@ namespace Havbruksloggen.CodingChallenge.Api
                         ValidateAudience = false
                     };
                 });
-            services.AddCors();
 
             services.AddMvcCore(options =>
                 {
@@ -123,6 +125,12 @@ namespace Havbruksloggen.CodingChallenge.Api
 
             app.UseRouting();
 
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials()); // allow credentials
+
             app.UseAuthentication(); // Must be after UseRouting()
             app.UseAuthorization(); // Must be after UseAuthentication()
 
@@ -137,11 +145,6 @@ namespace Havbruksloggen.CodingChallenge.Api
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Simple Api V1");
                 c.DocExpansion(DocExpansion.None);
             });
-
-            app.UseCors(x => x
-                .AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader());
         }
     }
 }

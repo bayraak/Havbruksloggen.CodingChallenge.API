@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Havbruksloggen.CodingChallenge.Core.Dtos;
 using Havbruksloggen.CodingChallenge.Core.Extensions;
-using Havbruksloggen.CodingChallenge.Core.Models;
+using Havbruksloggen.CodingChallenge.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 #nullable enable
 

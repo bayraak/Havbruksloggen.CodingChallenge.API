@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using Havbruksloggen.CodingChallenge.Core.Dtos;
 using Havbruksloggen.CodingChallenge.Core.Extensions;
-using Havbruksloggen.CodingChallenge.Core.Models;
+using Havbruksloggen.CodingChallenge.Core.Entities;
 
 namespace Havbruksloggen.CodingChallenge.Core.Repositories
 {

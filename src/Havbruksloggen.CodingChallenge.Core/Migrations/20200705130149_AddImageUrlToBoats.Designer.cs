@@ -21,7 +21,7 @@ namespace Havbruksloggen.CodingChallenge.Core.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Havbruksloggen.CodingChallenge.Core.Models.Boat", b =>
+            modelBuilder.Entity("Havbruksloggen.CodingChallenge.Core.Entities.Boat", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,7 +61,7 @@ namespace Havbruksloggen.CodingChallenge.Core.Migrations
                     b.ToTable("boats");
                 });
 
-            modelBuilder.Entity("Havbruksloggen.CodingChallenge.Core.Models.CrewMember", b =>
+            modelBuilder.Entity("Havbruksloggen.CodingChallenge.Core.Entities.CrewMember", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -97,7 +97,7 @@ namespace Havbruksloggen.CodingChallenge.Core.Migrations
                     b.ToTable("crew_members");
                 });
 
-            modelBuilder.Entity("Havbruksloggen.CodingChallenge.Core.Models.Employee", b =>
+            modelBuilder.Entity("Havbruksloggen.CodingChallenge.Core.Entities.Employee", b =>
                 {
                     b.Property<int>("EmpNo")
                         .ValueGeneratedOnAdd()
@@ -130,7 +130,7 @@ namespace Havbruksloggen.CodingChallenge.Core.Migrations
                     b.ToTable("employees");
                 });
 
-            modelBuilder.Entity("Havbruksloggen.CodingChallenge.Core.Models.User", b =>
+            modelBuilder.Entity("Havbruksloggen.CodingChallenge.Core.Entities.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -160,18 +160,18 @@ namespace Havbruksloggen.CodingChallenge.Core.Migrations
                     b.ToTable("users");
                 });
 
-            modelBuilder.Entity("Havbruksloggen.CodingChallenge.Core.Models.Boat", b =>
+            modelBuilder.Entity("Havbruksloggen.CodingChallenge.Core.Entities.Boat", b =>
                 {
-                    b.HasOne("Havbruksloggen.CodingChallenge.Core.Models.User", "User")
+                    b.HasOne("Havbruksloggen.CodingChallenge.Core.Entities.User", "User")
                         .WithMany("Boats")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Havbruksloggen.CodingChallenge.Core.Models.CrewMember", b =>
+            modelBuilder.Entity("Havbruksloggen.CodingChallenge.Core.Entities.CrewMember", b =>
                 {
-                    b.HasOne("Havbruksloggen.CodingChallenge.Core.Models.Boat", "Boat")
+                    b.HasOne("Havbruksloggen.CodingChallenge.Core.Entities.Boat", "Boat")
                         .WithMany("CrewMembers")
                         .HasForeignKey("BoatId")
                         .HasConstraintName("FK_Boats_CrewMemberId")

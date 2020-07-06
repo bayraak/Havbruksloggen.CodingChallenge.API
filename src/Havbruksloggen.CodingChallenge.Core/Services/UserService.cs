@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Havbruksloggen.CodingChallenge.Core.Models;
+using Havbruksloggen.CodingChallenge.Core.Entities;
 using Havbruksloggen.CodingChallenge.Core.Repositories;
 
 namespace Havbruksloggen.CodingChallenge.Core.Services

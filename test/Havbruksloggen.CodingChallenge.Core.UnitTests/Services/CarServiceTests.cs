@@ -5,7 +5,7 @@ using AutoFixture;
 using AutoFixture.Xunit2;
 using FluentAssertions;
 using Havbruksloggen.CodingChallenge.Core;
-using Havbruksloggen.CodingChallenge.Core.Models;
+using Havbruksloggen.CodingChallenge.Core.Entities;
 using Havbruksloggen.CodingChallenge.Core.Repositories;
 using Havbruksloggen.CodingChallenge.Core.Services;
 using Havbruksloggen.CodingChallenge.Core.UnitTests.Infrastructure;

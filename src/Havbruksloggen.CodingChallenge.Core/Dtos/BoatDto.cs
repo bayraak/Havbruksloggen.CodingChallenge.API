@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Havbruksloggen.CodingChallenge.Core.Models;
+using Havbruksloggen.CodingChallenge.Core.Entities;
 
 namespace Havbruksloggen.CodingChallenge.Core.Dtos
 {

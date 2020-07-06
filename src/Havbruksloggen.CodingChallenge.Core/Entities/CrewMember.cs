@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Havbruksloggen.CodingChallenge.Core.Enumerations;
 
-namespace Havbruksloggen.CodingChallenge.Core.Models
+namespace Havbruksloggen.CodingChallenge.Core.Entities
 {
     [Table("crew_members")]
     public partial class CrewMember

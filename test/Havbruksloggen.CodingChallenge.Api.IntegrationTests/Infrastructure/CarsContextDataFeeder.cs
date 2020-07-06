@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Havbruksloggen.CodingChallenge.Core;
-using Havbruksloggen.CodingChallenge.Core.Models;
+using Havbruksloggen.CodingChallenge.Core.Entities;
 
 namespace Havbruksloggen.CodingChallenge.Api.IntegrationTests.Infrastructure
 {

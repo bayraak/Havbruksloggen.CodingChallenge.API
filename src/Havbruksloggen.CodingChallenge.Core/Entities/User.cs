@@ -6,7 +6,7 @@ using System.Data;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace Havbruksloggen.CodingChallenge.Core.Models
+namespace Havbruksloggen.CodingChallenge.Core.Entities
 {
     [Table("users")]
     public class User

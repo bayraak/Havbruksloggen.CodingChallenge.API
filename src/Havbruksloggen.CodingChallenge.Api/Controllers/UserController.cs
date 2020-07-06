@@ -7,13 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Havbruksloggen.CodingChallenge.Api.Converters;
 using Havbruksloggen.CodingChallenge.Core.Dtos;
-using Havbruksloggen.CodingChallenge.Core.Models;
+using Havbruksloggen.CodingChallenge.Core.Entities;
 using Havbruksloggen.CodingChallenge.Core.Services;
 using Havbruksloggen.CodingChallenge.Api.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Http;
 
 namespace Havbruksloggen.CodingChallenge.Api.Controllers
 {
@@ -22,7 +23,7 @@ namespace Havbruksloggen.CodingChallenge.Api.Controllers
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
-        private IUserService _userService;
+        private readonly IUserService _userService;
         private readonly AppSettings _appSettings;
 
         public UsersController(
@@ -34,6 +35,9 @@ namespace Havbruksloggen.CodingChallenge.Api.Controllers
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesDefaultResponseType]
         public async Task<IActionResult> Authenticate([FromBody] AuthenticateDto authenticateDto)
         {
             var user = await _userService.AuthenticateAsync(authenticateDto.Username, authenticateDto.Password);
@@ -67,6 +71,9 @@ namespace Havbruksloggen.CodingChallenge.Api.Controllers
 
         [AllowAnonymous]
         [HttpPost("register")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesDefaultResponseType]
         public async Task<IActionResult> Register([FromBody] UserDto userDto)
         {
             // map dto to entity

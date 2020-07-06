@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Havbruksloggen.CodingChallenge.Core.Models
+namespace Havbruksloggen.CodingChallenge.Core.Entities
 {
     [Table("boats")]
     public partial class Boat
