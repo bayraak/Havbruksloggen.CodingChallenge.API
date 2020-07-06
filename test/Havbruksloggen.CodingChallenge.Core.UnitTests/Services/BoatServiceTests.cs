@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Moq;
 using Xunit;
 
-namespace Havbruksloggen.CodingChallengeH.Core.UnitTests.Services
+namespace Havbruksloggen.CodingChallenge.Core.UnitTests.Services
 {
     public class BoatServiceTests
     {

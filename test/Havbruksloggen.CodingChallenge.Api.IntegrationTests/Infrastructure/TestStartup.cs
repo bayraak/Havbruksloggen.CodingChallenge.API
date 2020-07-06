@@ -42,10 +42,7 @@ namespace Havbruksloggen.CodingChallenge.Api.IntegrationTests.Infrastructure
 
         public override void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            var employeesContext = app.ApplicationServices.GetService<ApplicationDbContext>();
-            EmployeesContextDataFeeder.Feed(employeesContext);
-
-            var carsContext = app.ApplicationServices.GetService<ApplicationDbContext>();
+           var carsContext = app.ApplicationServices.GetService<ApplicationDbContext>();
             BoatsContextDataFeeder.Feed(carsContext);
 
             app.UseRouting();

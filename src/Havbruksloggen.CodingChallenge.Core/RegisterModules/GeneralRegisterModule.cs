@@ -8,7 +8,6 @@ namespace Havbruksloggen.CodingChallenge.Core.RegisterModules
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<EmployeeRepository>().As<IEmployeeRepository>();
             builder.RegisterType<UserRepository>().As<IUserRepository>();
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<BoatService>().As<IBoatService>();

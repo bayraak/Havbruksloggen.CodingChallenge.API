@@ -2,7 +2,7 @@ using Xunit;
 
 namespace Havbruksloggen.CodingChallenge.Api.LoadTests
 {
-    public class CarsControllerTests : LoadTestsBase
+    public class BoatsControllerTests : LoadTestsBase
     {
         protected override string ResourceUrl => "api/cars";
 

@@ -11,8 +11,6 @@ namespace Havbruksloggen.CodingChallenge.Core
             : base(options)
         {
         }
-
-        public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Boat> Boats { get; set; }
         public virtual DbSet<CrewMember> Owners { get; set; }
         public virtual DbSet<User> Users { get; set; }
@@ -22,24 +20,7 @@ namespace Havbruksloggen.CodingChallenge.Core
         {
             modelBuilder.HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
-            //modelBuilder.Entity<User>(entity => {
-            //    entity.HasIndex(e => e.Username).IsUnique();
-            //});
-
-            modelBuilder.Entity<Employee>(entity =>
-            {
-                entity.HasIndex(e => e.DeptNo)
-                    .HasName("dept_no");
-
-                entity.Property(e => e.EmpNo).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.FirstName).IsUnicode(false);
-
-                entity.Property(e => e.LastName).IsUnicode(false);
-
-            });
-
-            modelBuilder.Entity<Boat>(entity =>
+          modelBuilder.Entity<Boat>(entity =>
             {
                 entity.Property(e => e.Name).IsUnicode(false);
 
