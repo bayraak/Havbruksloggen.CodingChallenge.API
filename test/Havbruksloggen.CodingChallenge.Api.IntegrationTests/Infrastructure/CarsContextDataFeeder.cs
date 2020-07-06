@@ -20,8 +20,8 @@ namespace Havbruksloggen.CodingChallenge.Api.IntegrationTests.Infrastructure
             {
                 Name = "DW 12345",
                 BuildNumber = 3,
-                LoA = 3.3M,
-                B = 2.2M,
+                LoA = 3.3F,
+                B = 2.2F,
                 CrewMembers = new List<CrewMember> { owner1 },
             };
             dbContext.Boats.Add(boat1);

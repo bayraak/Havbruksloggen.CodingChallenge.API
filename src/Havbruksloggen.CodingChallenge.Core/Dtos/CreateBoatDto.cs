@@ -15,8 +15,8 @@ namespace Havbruksloggen.CodingChallenge.Core.Dtos
 
         [JsonIgnore]
         public int UserId { get; set; }
-        public decimal LoA { get; set; }
-        public decimal B { get; set; }
+        public float LoA { get; set; }
+        public float B { get; set; }
         public string ImageUrl { get; set; }
         public ICollection<CreateCrewMemberDto> CrewMembers { get; set; }
     }

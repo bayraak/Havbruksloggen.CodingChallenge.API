@@ -41,6 +41,7 @@ namespace Havbruksloggen.CodingChallenge.Core.Services
                 Producer = x.Producer,
                 LoA = x.LoA,
                 B = x.B,
+                ImageUrl = x.ImageUrl,
                 CrewMembers = x.CrewMembers.ToDto()
             });
         }

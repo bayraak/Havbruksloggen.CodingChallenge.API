@@ -39,6 +39,8 @@ namespace Havbruksloggen.CodingChallenge.Core.Extensions
 
         public static ICollection<CrewMember> ToEntities(this ICollection<CreateCrewMemberDto> source)
         {
+            if (source is null) return null;
+
             return source.Select(x => new CrewMember
             {
                 Name = x.Name,
@@ -51,6 +53,8 @@ namespace Havbruksloggen.CodingChallenge.Core.Extensions
 
         public static ICollection<CreateCrewMemberDto> ToDto(this ICollection<CrewMember> source)
         {
+            if (source is null) return null;
+
             return source.Select(x => new CreateCrewMemberDto
             {
                 Name = x.Name,

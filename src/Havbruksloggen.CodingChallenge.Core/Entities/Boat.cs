@@ -19,11 +19,9 @@ namespace Havbruksloggen.CodingChallenge.Core.Entities
 
         public int? BuildNumber { get; set; }
 
-        [Column(TypeName = "decimal(5, 2")]
-        public decimal LoA { get; set; }
+        public float LoA { get; set; }
 
-        [Column(TypeName = "decimal(5, 2)")]
-        public decimal B { get; set; }
+        public float B { get; set; }
 
         public virtual ICollection<CrewMember> CrewMembers { get; set; } = new HashSet<CrewMember>();
 
