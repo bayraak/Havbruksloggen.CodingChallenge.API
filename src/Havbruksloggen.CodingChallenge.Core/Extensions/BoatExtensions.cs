@@ -18,7 +18,8 @@ namespace Havbruksloggen.CodingChallenge.Core.Extensions
                 BuildNumber = source.BuildNumber,
                 LoA = source.LoA,
                 B = source.B,
-                ImageUrl = source.ImageUrl
+                ImageUrl = source.ImageUrl,
+                CrewMembers = source.CrewMembers.ToDto()
             };
         }
 
@@ -47,7 +48,7 @@ namespace Havbruksloggen.CodingChallenge.Core.Extensions
                 Age = x.Age,
                 CertifiedUntil = x.CertifiedUntil,
                 CrewRole = x.CrewRole,
-                Email = x.Email
+                Email = x.Email,
             }).ToList();
         }
 

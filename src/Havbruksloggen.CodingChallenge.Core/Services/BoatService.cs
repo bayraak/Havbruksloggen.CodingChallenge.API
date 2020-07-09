@@ -3,8 +3,10 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Havbruksloggen.CodingChallenge.Core.Dtos;
+using Havbruksloggen.CodingChallenge.Core.Entities;
 using Havbruksloggen.CodingChallenge.Core.Extensions;
 using Havbruksloggen.CodingChallenge.Core.Repositories;
+#nullable enable
 
 namespace Havbruksloggen.CodingChallenge.Core.Services
 {
@@ -13,6 +15,8 @@ namespace Havbruksloggen.CodingChallenge.Core.Services
         Task<IEnumerable<BoatDto>> GetAllAsync(CancellationToken cancellationToken, int userId);
 
         Task Create(CreateBoatDto createBoatDto);
+
+        Task<BoatDto>? AddCrewMembersToBoat(int boatId, ICollection<CreateCrewMemberDto> crewMembers, int userId);
     }
 
     public class BoatService : IBoatService
@@ -44,6 +48,13 @@ namespace Havbruksloggen.CodingChallenge.Core.Services
                 ImageUrl = x.ImageUrl,
                 CrewMembers = x.CrewMembers.ToDto()
             });
+        }
+
+        public async Task<BoatDto>? AddCrewMembersToBoat(int boatId, ICollection<CreateCrewMemberDto> crewMembers, int userId)
+        {
+            var entity = await  _boatRepository.AddCrewMembersToBoat(boatId, crewMembers, userId);
+
+            return entity.MapToDto();
         }
     }
 }

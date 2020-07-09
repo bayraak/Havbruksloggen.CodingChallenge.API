@@ -76,7 +76,6 @@ namespace Havbruksloggen.CodingChallenge.Api.Controllers
         [ProducesDefaultResponseType]
         public async Task<IActionResult> Register([FromBody] UserDto userDto)
         {
-            // map dto to entity
             var user = userDto.ToUser();
 
             try
@@ -86,7 +85,6 @@ namespace Havbruksloggen.CodingChallenge.Api.Controllers
             }
             catch (Exception ex)
             {
-                // return error message if there was an exception
                 return BadRequest(new { message = ex.Message });
             }
         }

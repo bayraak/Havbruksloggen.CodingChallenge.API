@@ -1,6 +1,0 @@
-**/bin/
-**/obj/
-**/*.user
-src/HappyCode.NetCoreBoilerplate.Db
-.vs
-.git

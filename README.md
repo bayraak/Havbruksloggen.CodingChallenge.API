@@ -3,13 +3,13 @@
 
 Havbruksloggen.CodingChallenge.API
 
+https://havbruksloggencodingchallengeapi20200705154032.azurewebsites.net/swagger
+
 ## Source code contains
 
 * [Autofac](https://autofac.org/)
 * [Swagger](https://swagger.io/) + [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle)
-* [HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks)
 * [EF Core](https://docs.microsoft.com/ef/)
-    * [MySQL provider from Pomelo Foundation](https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql)
     * [MsSQL from Microsoft](https://github.com/aspnet/EntityFrameworkCore/)
 * Tests
     * Integration tests with InMemory database
@@ -34,25 +34,24 @@ Havbruksloggen.CodingChallenge.API
 
 ### Api
 
-* Simple Startup class - [Startup.cs](src/HappyCode.NetCoreBoilerplate.Api/Startup.cs)
+  * Startup class - [Startup.cs]
   * MvcCore
   * DbContext (with MsSQL)
   * Swagger and SwaggerUI (Swashbuckle)
   * HostedService
   * HttpClient
 * Filters
-  * Action filter to validate `ModelState` - [ValidateModelStateFilter.cs](src/HappyCode.NetCoreBoilerplate.Api/Infrastructure/Filters/ValidateModelStateFilter.cs)
-  * Global exception filter - [HttpGlobalExceptionFilter.cs](src/HappyCode.NetCoreBoilerplate.Api/Infrastructure/Filters/HttpGlobalExceptionFilter.cs)
+  * Action filter to validate `ModelState` - [ValidateModelStateFilter.cs]
+  * Global exception filter - [HttpGlobalExceptionFilter.cs]
 * Configurations
-  * Dependency registration place - [ContainerConfigurator.cs](src/HappyCode.NetCoreBoilerplate.Api/Infrastructure/Configurations/ContainerConfigurator.cs)
-  * `Serilog` configuration place - [SerilogConfigurator.cs](src/HappyCode.NetCoreBoilerplate.Api/Infrastructure/Configurations/SerilogConfigurator.cs)
-  * `Swagger` configuration place - [SwaggerConfigurator.cs](src/HappyCode.NetCoreBoilerplate.Api/Infrastructure/Configurations/SwaggerConfigurator.cs)
+  * Dependency registration place - [ContainerConfigurator.cs]
+  * `Serilog` configuration place - [SerilogConfigurator.cs]
+  * `Swagger` configuration place - [SwaggerConfigurator.cs]
 
 ### Core
 
-[HappyCode.NetCoreBoilerplate.Core](src/HappyCode.NetCoreBoilerplate.Core)
 
-* Simple MsSQL AppDbContext - [AppDbContext.cs](src/HappyCode.NetCoreBoilerplate.Core/AppDbContext.cs)
+* Simple MsSQL AppDbContext - [AppDbContext.cs]
 * Services
 * Repositories
 * Entities

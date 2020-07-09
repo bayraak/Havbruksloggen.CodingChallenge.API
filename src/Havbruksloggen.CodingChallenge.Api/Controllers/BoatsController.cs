@@ -62,6 +62,25 @@ namespace Havbruksloggen.CodingChallenge.Api.Controllers
             return Ok();
         }
 
+        [HttpPost("{boatId}/SaveCrewMember")]
+        public async Task<IActionResult> AddCrewMembersToBoat(int boatId, [FromBody] ICollection<CreateCrewMemberDto> crewMembers)
+        {
+            var userId = int.Parse(_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Name).Value);
+
+            try
+            {
+                var result = await _boatService.AddCrewMembersToBoat(boatId, crewMembers, userId);
+
+                if (result is null) return NotFound();
+
+                return Ok(result);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Forbid();
+            }
+        }
+
         private async Task<string> GetUploadedFileUrl(IFormFile file)
         {
             var storageConnectionString = _configuration["ConnectionStrings:AzureStorageConnectionString"];
